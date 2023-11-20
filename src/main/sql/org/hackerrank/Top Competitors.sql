@@ -13,5 +13,3 @@ from (select v.hacker_id, h.name, v.cnt
             having count(*) > 1) v
                join Hackers h on v.hacker_id = h.hacker_id) w
 order by cnt desc, hacker_id;
-
-git@github-8882989585:8882989585/scalawithspark.git
