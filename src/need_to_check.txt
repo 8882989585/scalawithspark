@@ -1,2 +1,3 @@
 - spark connect introduced in 3.4
 - launching a cluster via hadoop yarn
+- I will kill
