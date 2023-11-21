@@ -26,11 +26,11 @@ object CreatingRDDs extends App {
   private def saveRDDAsJavaObject(ss: SparkSession): Unit = {
     val words = Array("abhishek chauhan", "abhinav chauhan", "shalu", "neer")
     val rdd = ss.sparkContext.parallelize(words, 2)
-    rdd.saveAsObjectFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\org\\spark\\batch\\rdd\\creatingrdd")
+    rdd.saveAsObjectFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\spark\\batch\\rdd\\creatingrdd")
   }
 
   private def readRDDFromJavaObject(ss: SparkSession): Unit = {
-    val rdd = ss.sparkContext.objectFile[String]("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\org\\spark\\batch\\rdd\\creatingrdd")
+    val rdd = ss.sparkContext.objectFile[String]("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\spark\\batch\\rdd\\creatingrdd")
     rdd.foreach(line => println(line))
   }
 
