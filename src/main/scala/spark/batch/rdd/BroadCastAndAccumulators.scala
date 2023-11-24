@@ -1,4 +1,4 @@
-package org.spark.batch.rdd
+package spark.batch.rdd
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.util.AccumulatorV2
