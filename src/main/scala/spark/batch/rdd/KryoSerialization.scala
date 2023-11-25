@@ -1,4 +1,4 @@
-package org.spark.batch.rdd
+package spark.batch.rdd
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
@@ -35,11 +35,11 @@ object KryoSerialization extends App {
   private def readRDDAsKryoObject(ss: SparkSession): Unit = {
     val words = Array(new Person("Abhishek", 29), new Person("Abhinav", 44))
     val rdd = ss.sparkContext.parallelize(words, 2)
-    rdd.saveAsObjectFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\org\\spark\\batch\\rdd\\kryoserialization")
+    rdd.saveAsObjectFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\spark\\batch\\rdd\\kryoserialization")
   }
 
   private def readRDDFromKryoObject(ss: SparkSession): Unit = {
-    val rdd = ss.sparkContext.objectFile[Person]("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\org\\spark\\batch\\rdd\\kryoserialization")
+    val rdd = ss.sparkContext.objectFile[Person]("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\temp\\spark\\batch\\rdd\\kryoserialization")
     rdd.foreach(line => println(line.toString))
   }
 

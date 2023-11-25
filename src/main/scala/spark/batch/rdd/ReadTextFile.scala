@@ -1,4 +1,4 @@
-package org.spark.batch.rdd
+package spark.batch.rdd
 
 import org.apache.spark.sql.SparkSession
 
@@ -17,7 +17,7 @@ object ReadTextFile extends App {
 
   private def readFile(ss: SparkSession): Unit = {
     import ss.implicits._
-    val df = ss.read.textFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\data\\org\\spark\\batch\\rdd\\readtextfile.txt")
+    val df = ss.read.textFile("C:\\Users\\Abhishek Chauhan\\workspace\\scalawithspark\\src\\main\\data\\spark\\batch\\rdd\\readtextfile.txt")
     println("total no of lines in the file ".concat(df.count().toString))
     println("total no of words in the file ".concat(df.map(line => line.split(" ").length).reduce((a, b) => a + b).toString))
   }
