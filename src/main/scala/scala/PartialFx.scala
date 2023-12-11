@@ -9,10 +9,16 @@ object PartialFx extends App {
     def apply(q: Int): Int = 12 * q
   }
 
+  private val pf1:PartialFunction[Int, Int] = { case k => if (k > 5) 0 else k * k }
+
   println(pf(0))
 
   val a = pf andThen (k => k * k)
   println(a(4))
 
-  val b = pf applyOrElse { case k => if (k > 5) 0 else k * k }
+
+
+  val b = pf.orElse(pf1)
+
+  b(7)
 }
