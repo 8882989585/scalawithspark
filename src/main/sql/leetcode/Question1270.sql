@@ -1,4 +1,5 @@
 -- https://leetcode.com/problems/all-people-report-to-the-given-manager/
+-- recursive
 
 WITH RECURSIVE rc as (select manager_id, employee_id
                       from Employees

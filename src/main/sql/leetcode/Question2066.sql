@@ -1,4 +1,5 @@
 -- https://leetcode.com/problems/account-balance/
+-- advance select
 
 with t1 as (select account_id,
                    day,
