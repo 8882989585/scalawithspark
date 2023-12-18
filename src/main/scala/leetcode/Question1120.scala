@@ -3,7 +3,7 @@
 package leetcode
 
 import scala.collection.mutable
-import scala.collection.mutable.ListBuffer
+import scala.collection.mutable._
 
 object Question1120 extends App {
   class TreeNode(_value: Int = 0, _left: TreeNode = null, _right: TreeNode = null) {

@@ -2,23 +2,23 @@ package scala
 
 object PartialFx extends App {
 
-  private val pf: PartialFunction[Int, Int] = new PartialFunction[Int, Int] {
+  private val pf: PartialFunction[(Int, Int), Int] = new PartialFunction[(Int, Int), Int] {
+    override def isDefinedAt(x: (Int, Int)): Boolean = x._1 > x._2
 
-    def isDefinedAt(q: Int): Boolean = q > 4
-
-    def apply(q: Int): Int = 12 * q
+    override def apply(v1: (Int, Int)): Int = v1._1 * v1._2
   }
 
-  private val pf1:PartialFunction[Int, Int] = { case k => if (k > 5) 0 else k * k }
+  private val pf1: PartialFunction[(Int, Int), Int] = {
+    case (k, v) => if (k > v) 0 else k * k
+  }
 
-  println(pf(0))
+  println(pf((1, 2)))
 
   val a = pf andThen (k => k * k)
-  println(a(4))
-
+  println(a(4, 2))
 
 
   val b = pf.orElse(pf1)
 
-  b(7)
+  b((7,1))
 }
